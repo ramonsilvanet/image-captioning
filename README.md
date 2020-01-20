@@ -13,9 +13,13 @@ Primeiro o algoritmo deve entender dados de imagens e em segundo lugar devem ser
 
 *A imagem mostra o fluxo de processamento de um algoritmo de geração de legendas para imagens. O fluxo se inicia com uma imagem de uma gato siamês dormindo, em segunda o fluxo avança para uma caixa que simboliza uma rede neural convolucional, e está escrito “Características visuais”. Na sequência o fluxo avança para uma segunda caixa chamada rede neural recorrente onde está escrito “características textuais”. Por fim o fluxo avança para uma última caixa escrito “Predição da resposta” que aponta para a resposta do algoritmo : Resposta Rq “Gato dormindo”.*
 
+### Imagens e as CNNs
+
 Para imagens existem as redes neurais Convolucionais, de diversos tipos e tamanhos disponíveis em trabalhos acadêmicos ou mesmo no github.
 
 ![Redes Neurais Convolucionais](docs/images/cnn.png)
+
+### Texto e as RNNs
 
 Para lidar com texto, usualmente são utilizadas as redes neurais recorrentes, que são ótimas para processamento de dados sequenciais (texto é uma cadeia de dados sequenciais).
 
