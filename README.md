@@ -44,6 +44,10 @@ Para este algoritimo estamos usando o conjunto de dados [Flickr_8k](https://gith
 
 Ainda estamos buscando um c onjunto de dados com descrições em português, ou mesmo traduzir as descrições que atualmentes encontram-se em inglês.
 
+### Treinamento do Modelo
+
+O passo a passo utilizando para carregar, limpar e processar o *dataset*, como como treinar o modelo podem ser vistos [aqui](docs/train.md).
+
 ## Links e Fontes Bibliográficas
 https://olhardigital.com.br/noticia/google-libera-algoritmo-que-descreve-imagens-com-94-de-precisao/62443
 
