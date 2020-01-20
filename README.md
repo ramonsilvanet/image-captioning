@@ -15,7 +15,11 @@ Primeiro o algoritmo deve entender dados de imagens e em segundo lugar devem ser
 
 Para imagens existem as redes neurais Convolucionais, de diversos tipos e tamanhos disponíveis em trabalhos acadêmicos ou mesmo no github.
 
+![Redes Neurais Convolucionais](docs/images/cnn.png)
+
 Para lidar com texto, usualmente são utilizadas as redes neurais recorrentes, que são ótimas para processamento de dados sequenciais (texto é uma cadeia de dados sequenciais).
+
+![Redes Neurais Recorrentes](docs/images/rnn.png)
 
 Para gerar legenda em imagens, teremos que combinar essas duas redes neurais.
 
@@ -30,4 +34,27 @@ Uma solução de contorno será a utilização de um modelo treinado em inglês 
 
 Algoritmo [Show and Tell(Bengio, 2015)](https://arxiv.org/abs/1411.4555) é bem famoso para esse tipo de tarefa, porém ele é antigo, sofrendo algumas atualizações como [Show, Tell and Atend (Bengio, 2015)](https://arxiv.org/abs/1502.03044). O algoritmo *Show and Tell* foi liberado pelo google em 2016, tendo várias implementações no github. O problema com esse algoritmo é que ele tem que ser treinado pelo prṕrio usuário.
 
+### Datasets
 
+Para este algoritimo estamos usando o conjunto de dados [Flickr_8k](https://github.com/jbrownlee/Datasets). composto por 8002 imagens, com descrições (*em inglês*).
+
+Ainda estamos buscando um c onjunto de dados com descrições em português, ou mesmo traduzir as descrições que atualmentes encontram-se em inglês.
+
+## Links e Fontes Bibliográficas
+https://olhardigital.com.br/noticia/google-libera-algoritmo-que-descreve-imagens-com-94-de-precisao/62443
+
+http://openaccess.thecvf.com/content_CVPR_2019/html/Zheng_Intention_Oriented_Image_Captions_With_Guiding_Objects_CVPR_2019_paper.html
+
+https://www.captionbot.ai/
+
+https://towardsdatascience.com/image-captioning-with-keras-teaching-computers-to-describe-pictures-c88a46a311b8
+
+https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/
+
+http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+https://docs.google.com/document/d/1nT_Z79RISuVfeHeDGXrt-nWYlRjmgIYsa5-IDd5v_ks/edit?ts=5dded12b#
+
+https://machinelearningmastery.com/clean-text-machine-learning-python/
