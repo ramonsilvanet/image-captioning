@@ -67,6 +67,11 @@ https://docs.google.com/document/d/1nT_Z79RISuVfeHeDGXrt-nWYlRjmgIYsa5-IDd5v_ks/
 
 https://machinelearningmastery.com/clean-text-machine-learning-python/
 
+https://arxiv.org/abs/1703.09137
+
+https://arxiv.org/abs/1708.02043
+
+https://arxiv.org/abs/1505.06798
 
 ## Setup
 

@@ -4,7 +4,7 @@
 
 ## O Algoritimo
 
-Como primeira parte do algoritimo, iremos extrair vetores de características das imagens do conjunto de dados usando uma rede neural convolucional (mas precisamento a rede neural [VGG16](https://arxiv.org/abs/1505.06798)).
+Como primeira parte do algoritimo, iremos extrair vetores de características das imagens do conjunto de dados usando uma rede neural convolucional (mais precisamente a rede neural [VGG16](https://arxiv.org/abs/1505.06798)).
 
 Para processar as descrições, utilizaremos uma rede neural Recorrente padrão (*Vanilla*).
 
