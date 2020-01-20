@@ -58,3 +58,8 @@ http://colah.github.io/posts/2015-08-Understanding-LSTMs/
 https://docs.google.com/document/d/1nT_Z79RISuVfeHeDGXrt-nWYlRjmgIYsa5-IDd5v_ks/edit?ts=5dded12b#
 
 https://machinelearningmastery.com/clean-text-machine-learning-python/
+
+
+## Setup
+
+Para rodar este projeto, recomenda-se uma ambiente virtual python 3 (*anaconda, virtualenv, etc...*) com as bibliotecas : *keras 2+, Tensorflow, pandas, numpy, matplotlib, Pillow e python-dotenv*
