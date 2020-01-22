@@ -73,6 +73,8 @@ https://arxiv.org/abs/1708.02043
 
 https://arxiv.org/abs/1505.06798
 
+https://machinelearningmastery.com/caption-generation-inject-merge-architectures-encoder-decoder-model/
+
 ## Setup
 
 Para rodar este projeto, recomenda-se uma ambiente virtual python 3 (*anaconda, virtualenv, etc...*) com as bibliotecas : *keras 2+, Tensorflow, pandas, numpy, matplotlib, Pillow e python-dotenv*
