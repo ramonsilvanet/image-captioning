@@ -2,9 +2,9 @@
 
 ![](images/workflow.png)
 
-## O Algoritimo
+## O Algoritmo
 
- * **Photo Feature Extractor** Como primeira parte do algoritimo, iremos extrair vetores de características das imagens do conjunto de dados usando uma rede neural convolucional (mais precisamente a rede neural [VGG16](https://arxiv.org/abs/1505.06798)).
+ * **Photo Feature Extractor** Como primeira parte do algoritmo, iremos extrair vetores de características das imagens do conjunto de dados usando uma rede neural convolucional (mais precisamente a rede neural [VGG16](https://arxiv.org/abs/1505.06798)).
 
 * **Sequence Processor** Para processar as descrições, utilizaremos uma Rede Neural Recorrente de Memória de Curto e Longo Prazo ([LSTM-RNN](https://en.wikipedia.org/wiki/Long_short-term_memory)).
 
@@ -32,7 +32,7 @@ para isso rode o script `image_preprocessing.py`, ele irá vetorizar as imagens 
 
 ### Processando texto
 
-Para preprocesar o texto temos que realizar uma "limpeza", que irá :
+Para pre-processar o texto temos que realizar uma "limpeza", que irá :
  * Converter palavras para minúsculo
  * Remover pontuação
  * Remover palavras com apenas uma letra
@@ -40,7 +40,7 @@ Para preprocesar o texto temos que realizar uma "limpeza", que irá :
 
  Para isso rode o script `text_preprocessing.py`, ele irá gerar o arquivo `outputs/descriptions/descriptions.txt` como as descrições de cada imagem.
 
-### Trainamento da Rede Neural
+### Treinamento da Rede Neural
 
 Agora estamos prontos para treinar nosso modelo de rede neural.
 
