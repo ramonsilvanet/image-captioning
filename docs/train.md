@@ -55,3 +55,9 @@ para executaremos os passos:
 Rode o script `train.py`
 
 ### Predizendo as legendas
+
+Uma vez treinado, podemos utilizar o modelo para avaliar a sua capacidade de previsão em um conjunto de dados de teste de validação.
+
+Avaliaremos o modelo gerando descrições para todas as fotos no conjunto de dados de teste e avaliando essas previsões com uma *função de custo* padrão.
+
+> Na otimização matemática, estatística, teoria da decisão, aprendizado de máquina e neurociência computacional, uma **função de perda** ou **função de custo** é uma função que mapeia um evento ou valores de uma ou mais variáveis num número real intuitivamente representando algum "custo" associado ao evento. Um problema de otimização procura minimizar uma função de perda. Uma função objetivo é uma função de perda ou sua função negativa (às vezes chamada função de recompensa, função de lucro, função de utilidade, função de aptidão, etc.), neste caso, ela deve ser maximizada. [[1]([https://pt.wikipedia.org/wiki/Fun%C3%A7%C3%A3o_de_perda)]
