@@ -128,6 +128,33 @@ def max_length(descriptions):
   lines = to_lines(descriptions)
   return max(len(d.split()) for d in lines)
 
+def build_model(vocab_size, max_length)
+  # feature extractor model
+  inputs1 = Input(shape=(4096,))
+  fe1 = Dropout(0.5)(inputs1)
+  fe2 = Dense(256, activation='relu')(fe1)
+
+  # sequence model
+  inputs2 = Input(shape=(max_length,))
+  se1 = Embedding(vocab_size, 256, mask_zero=True)(inputs2)
+  se2 = Dropout(0.5)(se1)
+  se3 = LSTM(256)(se2)
+
+  # decoder model
+  decoder1 = add([fe2, se3])
+  decoder2 = Dense(256, activation='relu')(decoder1)
+  outputs = Dense(vocab_size, activation='softmax')(decoder2)
+
+  # tie it together [image, seq] [word]
+  model = Model(inputs=[inputs1, inputs2], outputs=outputs)
+  model.compile(loss='categorical_crossentropy', optimizer='adam')
+
+  # summarize model
+  logging.debug(model.summary())
+  plot_model(model, to_file=PLOT_MODEL_FILE, show_shapes=True)
+  return model
+
+
 ###########################################
 #             START EXECUTION             #
 ###########################################
@@ -143,6 +170,8 @@ FEATURES_FILE = os.path.join(VECTORS_DIR, os.getenv("FEATURES_FILE"))
 DESCRIPTIONS_DIR = os.path.join(OUTPUT_DIR, os.getenv("DESCRIPTIONS_DIR"))
 DESCRIPTIONS_FILE = os.path.join(DESCRIPTIONS_DIR, os.getenv("DESCRIPTIONS_FILE"))
 LABELS_DIR = os.path.join(DATA_DIR, os.getenv("LABELS_DIR"))
+SNAPSHOTS_DIR=os.path.join(OUTPUT_DIR, os.getenv("SNAPSHOTS_DIR"))
+PLOT_MODEL_FILE = os.path(OUTPUT_DIR, os.getenv('PLOT_MODEL_FILE'))
 
 logging.debug("DATA_DIR %s" % DATA_DIR)
 logging.debug("OUTPUT_DIR %s" % OUTPUT_DIR)
@@ -151,6 +180,8 @@ logging.debug("VECTORS_DIR %s" % VECTORS_DIR)
 logging.debug("FEATURES_FILE %s" % FEATURES_FILE)
 logging.debug("DESCRIPTIONS_FILE %s" % DESCRIPTIONS_FILE)
 logging.debug("LABELS_DIR %s" % LABELS_DIR)
+logging.debug("SNAPSHOTS_DIR %s" % SNAPSHOTS_DIR)
+logging.debug("PLOT_MODEL_FILE %s" % PLOT_MODEL_FILE)
 
 
 # load training dataset (6K)
@@ -174,6 +205,18 @@ tokenizer = create_tokenizer(train_descriptions)
 vocab_size = len(tokenizer.word_index) + 1
 logging.info('Vocabulary Size: %d' % vocab_size)
 
-logging.info("Staring encode text data")
+logging.debug('Vocabulary Size: %d' % vocab_size)
+# determine the maximum sequence length
+max_length = max_length(train_descriptions)
+logging.debug('Description Length: %d' % max_length)
+
+# prepare sequences
+X1train, X2train, ytrain = create_sequences(tokenizer, max_length, train_descriptions, train_features, vocab_size)
+
+
+logging.info("Fitting model")
+model = define_model(vocab_size, max_length)
+
+
 
 logging.info("Done.")
