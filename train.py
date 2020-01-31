@@ -128,7 +128,7 @@ def max_length(descriptions):
   lines = to_lines(descriptions)
   return max(len(d.split()) for d in lines)
 
-def build_model(vocab_size, max_length)
+def build_model(vocab_size, max_length):
   # feature extractor model
   inputs1 = Input(shape=(4096,))
   fe1 = Dropout(0.5)(inputs1)
@@ -171,7 +171,7 @@ DESCRIPTIONS_DIR = os.path.join(OUTPUT_DIR, os.getenv("DESCRIPTIONS_DIR"))
 DESCRIPTIONS_FILE = os.path.join(DESCRIPTIONS_DIR, os.getenv("DESCRIPTIONS_FILE"))
 LABELS_DIR = os.path.join(DATA_DIR, os.getenv("LABELS_DIR"))
 SNAPSHOTS_DIR=os.path.join(OUTPUT_DIR, os.getenv("SNAPSHOTS_DIR"))
-PLOT_MODEL_FILE = os.path(OUTPUT_DIR, os.getenv('PLOT_MODEL_FILE'))
+PLOT_MODEL_FILE = os.path.join(OUTPUT_DIR, os.getenv('PLOT_MODEL_FILE'))
 
 logging.debug("DATA_DIR %s" % DATA_DIR)
 logging.debug("OUTPUT_DIR %s" % OUTPUT_DIR)
@@ -205,18 +205,16 @@ tokenizer = create_tokenizer(train_descriptions)
 vocab_size = len(tokenizer.word_index) + 1
 logging.info('Vocabulary Size: %d' % vocab_size)
 
-logging.debug('Vocabulary Size: %d' % vocab_size)
 # determine the maximum sequence length
 max_length = max_length(train_descriptions)
-logging.debug('Description Length: %d' % max_length)
+logging.debug('Max description Length: %d' % max_length)
 
 # prepare sequences
+logging.debug('prepare sequences...')
 X1train, X2train, ytrain = create_sequences(tokenizer, max_length, train_descriptions, train_features, vocab_size)
 
 
 logging.info("Fitting model")
 model = define_model(vocab_size, max_length)
-
-
 
 logging.info("Done.")
