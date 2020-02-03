@@ -179,7 +179,7 @@ DESCRIPTIONS_FILE = os.path.join(DESCRIPTIONS_DIR, os.getenv("DESCRIPTIONS_FILE"
 LABELS_DIR = os.path.join(DATA_DIR, os.getenv("LABELS_DIR"))
 SNAPSHOTS_DIR=os.path.join(OUTPUT_DIR, os.getenv("SNAPSHOTS_DIR"))
 PLOT_MODEL_FILE = os.path.join(OUTPUT_DIR, os.getenv('PLOT_MODEL_FILE'))
-
+MODELS_DIR = os.path.join(OUTPUT_DIR, os.getenv('MODELS_DIR'))
 logging.debug("DATA_DIR %s" % DATA_DIR)
 logging.debug("OUTPUT_DIR %s" % OUTPUT_DIR)
 logging.debug("IMAGE_DIR %s" % IMAGE_DIR)
@@ -225,14 +225,20 @@ logging.info("Fitting model")
 model = define_model(vocab_size, max_length)
 
 # train the model, run epochs manually and save after each epoch
-epochs = 20
+NUM_OF_EPOCHS=os.getenv('NUM_OF_EPOCHS')
+logging.info("Number of training epochs %d" % NUM_OF_EPOCHS)
+
+### WARNING !!! This train take saveral hours to complete if you don't have a GPU
+
+epochs = NUM_OF_EPOCHS
 steps = len(train_descriptions)
 for i in range(epochs):
+  logging.debug("Epoch %d of %s" % (i, NUM_OF_EPOCHS))
   # create the data generator
   generator = data_generator(train_descriptions, train_features, tokenizer, max_length, vocab_size)
   # fit for one epoch
   model.fit_generator(generator, epochs=1, steps_per_epoch=steps, verbose=1)
   # save model
-  model.save('model_' + str(i) + '.h5')
+  model.save(os.path.join( MODELS_DIR ,'model_' + str(i) + '.h5')
 
 logging.info("Done.")
