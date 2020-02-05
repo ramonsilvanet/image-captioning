@@ -46,11 +46,12 @@ Agora estamos prontos para treinar nosso modelo de rede neural.
 
 Neste passo iremos definir o modelo de rede neural e ajustá-lo ao nosso conjunto de treinamento.
 
-para executaremos os passos:
+para isso, executaremos os seguintes passos:
 
  * Carregar conjunto de dados
  * Definir o modelo
- * Ajustar o modelo aos dados
+ * Ajustar o modelo aos dados de treinamento
+ * Validar o ajuste do modelo, utilizando dados de teste e validação
 
 Rode o script `train.py`
 
@@ -71,4 +72,4 @@ Para isso rode o script
 python single_evaluate.py
 ```
 
- Para avaliar a qualidade da reposta utilizaremos uma métrica chamada [*BLEU Score*](https://machinelearningmastery.com/calculate-bleu-score-for-text-python/).
+ Para avaliar a qualidade das respostas, utilizaremos uma métrica chamada [*BLEU Score*](https://machinelearningmastery.com/calculate-bleu-score-for-text-python/).
