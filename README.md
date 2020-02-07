@@ -75,6 +75,45 @@ https://arxiv.org/abs/1505.06798
 
 https://machinelearningmastery.com/caption-generation-inject-merge-architectures-encoder-decoder-model/
 
-## Setup
+## Configuração do ambiente
 
-Para rodar este projeto, recomenda-se uma ambiente virtual python 3 (*anaconda, virtualenv, etc...*) com as bibliotecas : *keras 2+, Tensorflow, pandas, numpy, matplotlib, Pillow e python-dotenv*
+para facilitar o desenvolvimento, utilizaremos o anaconda. o Anaconda é um gerenciador de ambientes python focado em data science e machine leraning, com ele podemos facilmente instalar e configurar bibliotecas de desenvolvimento com algumas linhas de comando.
+
+### Instalando o anaconda
+
+#### Linux (ubuntu 16.04 / 18.04)
+
+`curl -fsSl https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh | bash`
+
+depois digite `yes` para aceitar o termos aperte enter para confirmar as opções padrões.
+
+#### Mac 
+
+`curl -fsSl https://repo.anaconda.com/archive/Anaconda3-2019.10-MacOSX-x86_64.sh | bash`
+
+
+### Criando o ambiente com o conda
+
+Após a instalação, é necessário reinicar o shell para que o comando `conda` esteja disponivel.
+
+#### Criando o ambiente 
+`conda create --name image-captioning tensorflow`
+
+Caso você tenha placa de vídeo Nvidia com a biblioteca de aceleração `cuda` instalada (Apenas Linux)
+
+`conda create --name image-captioning tensorflow-gpu`
+
+Agora ative o ambinete
+
+`conda activate image-captioning`
+
+#### Instalando biblotecas necessárias
+
+Dotenv
+
+`conda install -c conda-forge python-dotenv`
+
+
+Pillow
+
+`conda install -c conda-forge pillow`

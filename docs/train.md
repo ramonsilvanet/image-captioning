@@ -28,7 +28,7 @@ Para carregar o nosso conjunto de dados de treinamento, primeiro faço o downloa
 
 As redes neurais não entendem "imagens" ou "texto", elas entendem arrays de características, e para dar entrada em uma rede neural, precisamos vetorizar as imagens.
 
-para isso rode o script `image_preprocessing.py`, ele irá vetorizar as imagens e gravar em um arquivo chamado `outputs/vectors/features.pkl`
+para isso rode o script `01_image_preprocessing.py`, ele irá vetorizar as imagens e gravar em um arquivo chamado `outputs/vectors/features.pkl`
 
 ### Processando texto
 
@@ -38,7 +38,7 @@ Para pre-processar o texto temos que realizar uma "limpeza", que irá :
  * Remover palavras com apenas uma letra
  * Remover algarismos (e.g. 1,2,3,4,5,6,7,8,9)
 
- Para isso rode o script `text_preprocessing.py`, ele irá gerar o arquivo `outputs/descriptions/descriptions.txt` como as descrições de cada imagem.
+ Para isso rode o script `02_text_preprocessing.py`, ele irá gerar o arquivo `outputs/descriptions/descriptions.txt` como as descrições de cada imagem.
 
 ### Treinamento da Rede Neural
 
@@ -53,7 +53,7 @@ para isso, executaremos os seguintes passos:
  * Ajustar o modelo aos dados de treinamento
  * Validar o ajuste do modelo, utilizando dados de teste e validação
 
-Rode o script `train.py`
+Rode o script `03_train.py`
 
 ### Predizendo as legendas
 
@@ -69,7 +69,7 @@ Avaliaremos o modelo gerando descrições para todas as fotos no conjunto de dad
 Para isso rode o script
 
 ```
-python single_evaluate.py
+python 04_single_evaluate.py
 ```
 
  Para avaliar a qualidade das respostas, utilizaremos uma métrica chamada [*BLEU Score*](https://machinelearningmastery.com/calculate-bleu-score-for-text-python/).
