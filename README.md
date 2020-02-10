@@ -87,7 +87,7 @@ para facilitar o desenvolvimento, utilizaremos o anaconda. o Anaconda é um gere
 
 depois digite `yes` para aceitar o termos aperte enter para confirmar as opções padrões.
 
-#### Mac 
+#### Mac
 
 `curl -fsSl https://repo.anaconda.com/archive/Anaconda3-2019.10-MacOSX-x86_64.sh | bash`
 
@@ -96,7 +96,7 @@ depois digite `yes` para aceitar o termos aperte enter para confirmar as opçõe
 
 Após a instalação, é necessário reinicar o shell para que o comando `conda` esteja disponivel.
 
-#### Criando o ambiente 
+#### Criando o ambiente
 `conda create --name image-captioning tensorflow`
 
 Caso você tenha placa de vídeo Nvidia com a biblioteca de aceleração `cuda` instalada (Apenas Linux)
@@ -117,3 +117,8 @@ Dotenv
 Pillow
 
 `conda install -c conda-forge pillow`
+
+
+## Google Colab
+
+Uma opção de ambiente de desevolvimento é o [google colab](https://colab.research.google.com/) que permite criar notebooks online vinculados a conta do google drive onde podemos rodar códigos python em gpus fornecidas pelo google gratuitamente.
