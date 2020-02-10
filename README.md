@@ -19,6 +19,8 @@ Para imagens existem as redes neurais Convolucionais, de diversos tipos e tamanh
 
 ![Redes Neurais Convolucionais](docs/images/cnn.png)
 
+*A imagem mostra o fluxo de uma rede neural convolucional, que é especializada em processamento de imagem. No fluxo, temos como entrada uma imagem de um leão, a imagem é dividida em quadros e enviada para uma camda da rede neural chamada Convolution, a saída dessa camada é enviada para uma outra camada chamada Pooling, depois da Camada de Pooling, a imagem passa por outra camada COnvolution e por mais uma de Pooling, por fim o processamento chega na ultima camada (camada de saída) que prediz o resultado. Como exemplo de saída temos outra imagem de um Leão e uma imagem de um Tigre e a Rede seleciona a imagem do Leão como sendo a correta.*
+
 ### Texto e as RNNs
 
 Para lidar com texto, usualmente são utilizadas as redes neurais recorrentes, que são ótimas para processamento de dados sequenciais (texto é uma cadeia de dados sequenciais).
