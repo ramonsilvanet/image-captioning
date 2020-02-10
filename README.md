@@ -11,7 +11,7 @@ Primeiro o algoritmo deve entender dados de imagens e em segundo lugar devem ser
 
 ![a imagem mostra o fluxo de processamento de um algoritmo de geração de legendas para imagens. O fluxo se inicia com uma imagem de uma gato siamês dormindo, em segunda o fluxo avança para uma caixa que simboliza uma rede neural convolucional, e está escrito “Características visuais”. Na sequência o fluxo avança para uma segunda caixa chamada rede neural recorrente onde está escrito “características textuais”. Por fim o fluxo avança para uma última caixa escrito “Predição da resposta” que aponta para a resposta do algoritmo : Resposta Rq “Gato dormindo”.](docs/images/image-captioning.png)
 
-*A imagem mostra o fluxo de processamento de um algoritmo de geração de legendas para imagens. O fluxo se inicia com uma imagem de uma gato siamês dormindo, em segunda o fluxo avança para uma caixa que simboliza uma rede neural convolucional, e está escrito “Características visuais”. Na sequência o fluxo avança para uma segunda caixa chamada rede neural recorrente onde está escrito “características textuais”. Por fim o fluxo avança para uma última caixa escrito “Predição da resposta” que aponta para a resposta do algoritmo : Resposta Rq “Gato dormindo”.*
+*Figura 1: A imagem mostra o fluxo de processamento de um algoritmo de geração de legendas para imagens. O fluxo se inicia com uma imagem de uma gato siamês dormindo, em segunda o fluxo avança para uma caixa que simboliza uma rede neural convolucional, e está escrito “Características visuais”. Na sequência o fluxo avança para uma segunda caixa chamada rede neural recorrente onde está escrito “características textuais”. Por fim o fluxo avança para uma última caixa escrito “Predição da resposta” que aponta para a resposta do algoritmo : Resposta Rq “Gato dormindo”.*
 
 ### Imagens e as CNNs
 
@@ -19,7 +19,7 @@ Para imagens existem as redes neurais Convolucionais, de diversos tipos e tamanh
 
 ![Redes Neurais Convolucionais](docs/images/cnn.png)
 
-*A imagem mostra o fluxo de uma rede neural convolucional, que é especializada em processamento de imagem. No fluxo, temos como entrada uma imagem de um leão, a imagem é dividida em quadros e enviada para uma camda da rede neural chamada Convolution, a saída dessa camada é enviada para uma outra camada chamada Pooling, depois da Camada de Pooling, a imagem passa por outra camada COnvolution e por mais uma de Pooling, por fim o processamento chega na ultima camada (camada de saída) que prediz o resultado. Como exemplo de saída temos outra imagem de um Leão e uma imagem de um Tigre e a Rede seleciona a imagem do Leão como sendo a correta.*
+*Figura 2: A imagem mostra o fluxo de uma rede neural convolucional, que é especializada em processamento de imagem. No fluxo, temos como entrada uma imagem de um leão, a imagem é dividida em quadros e enviada para uma camda da rede neural chamada Convolution, a saída dessa camada é enviada para uma outra camada chamada Pooling, depois da Camada de Pooling, a imagem passa por outra camada COnvolution e por mais uma de Pooling, por fim o processamento chega na ultima camada (camada de saída) que prediz o resultado. Como exemplo de saída temos outra imagem de um Leão e uma imagem de um Tigre e a Rede seleciona a imagem do Leão como sendo a correta.*
 
 ### Texto e as RNNs
 
