@@ -80,7 +80,7 @@ def map_func(img_name, cap):
 #                 TRAINING FUNCTRION                   #
 ########################################################
 @tf.function
-def train_step(img_tensor, target):
+def train_step(img_tensor, target, decoder):
   loss = 0
 
   # initializing the hidden state for each batch

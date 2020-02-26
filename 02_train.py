@@ -185,7 +185,7 @@ for epoch in range(start_epoch, EPOCHS):
     total_loss = 0
 
     for (batch, (img_tensor, target)) in enumerate(dataset):
-        batch_loss, t_loss = train_step(img_tensor, target)
+        batch_loss, t_loss = train_step(img_tensor, target, decoder)
         total_loss += t_loss
 
         if batch % 100 == 0:
