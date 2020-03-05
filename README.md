@@ -42,7 +42,7 @@ Algoritmo [Show and Tell(Bengio, 2015)](https://arxiv.org/abs/1411.4555) é bem 
 
 ### Datasets
 
-Para este algoritimo estamos usando o conjunto de dados [Flickr_8k](https://github.com/jbrownlee/Datasets). composto por 8002 imagens, com descrições (*em inglês*).
+Para este algoritimo estamos usando o conjunto de dados [COCO Dataset](http://cocodataset.org/#home). composto por mais 82000 imagens, com descrições (*em inglês*).
 
 Ainda estamos buscando um c onjunto de dados com descrições em português, ou mesmo traduzir as descrições que atualmentes encontram-se em inglês.
 
@@ -67,7 +67,6 @@ http://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
 https://docs.google.com/document/d/1nT_Z79RISuVfeHeDGXrt-nWYlRjmgIYsa5-IDd5v_ks/edit?ts=5dded12b#
 
-https://machinelearningmastery.com/clean-text-machine-learning-python/
 
 https://arxiv.org/abs/1703.09137
 
@@ -75,7 +74,7 @@ https://arxiv.org/abs/1708.02043
 
 https://arxiv.org/abs/1505.06798
 
-https://machinelearningmastery.com/caption-generation-inject-merge-architectures-encoder-decoder-model/
+https://www.tensorflow.org/tutorials/text/image_captioning
 
 ## Configuração do ambiente
 
@@ -121,6 +120,18 @@ Pillow
 `conda install -c conda-forge pillow`
 
 
+Tqdm
+
+`conda install -c conda-forge tqdm`
+
+## Para usar GPU
+
+Para rodar os experimentos com aceleração de hardware (10x-15x mais rápido) é necessário ter uma (ou mais :flushed:) placas de vídeo Nvidia (outra marca não serve) das séries GT/X 8XX, 9XX, 10XX, RTX 20XX, ou da serie Pascal :moneybag: :moneybag: :moneybag:.
+
+#### Instalando o CUDA
+
+Se você possui placa de vídeo para rodar os experimentos, instale o [CUDA Toolkit](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html) antes de começar.
+
 ## Google Colab
 
-Uma opção de ambiente de desevolvimento é o [google colab](https://colab.research.google.com/) que permite criar notebooks online vinculados a conta do google drive onde podemos rodar códigos python em gpus fornecidas pelo google gratuitamente.
+Uma opção de ambiente de desevolvimento é o [google colab](https://colab.research.google.com/) que permite criar notebooks online vinculados a conta do google drive onde podemos rodar códigos python em gpus fornecidas pelo google gratuitamente, com GPU :smiley:.
