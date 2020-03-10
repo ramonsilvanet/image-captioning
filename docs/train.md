@@ -103,3 +103,12 @@ se você chegou atéé aqui parabéns. Agora poderemos colher os frutos do trein
 ## Desenhando o que a rede "*enxergou*"
 
 ![](images/attention_plot.png)
+
+
+## Referências
+
+ * COCO Dataset : http://cocodataset.org/#home
+ * Tensorflow: https://www.tensorflow.org/overview
+ * Show and Tell : https://arxiv.org/abs/1411.4555
+ * Show, Tell and Attend: https://arxiv.org/abs/1502.03044
+ * Image Caption with tensorflow : https://www.tensorflow.org/tutorials/text/image_captioning
