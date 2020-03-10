@@ -13,12 +13,12 @@ Esse fluxo foi baseado nos estudos abaixo:
 
 Este algoritimo é uma demonstração do algoritmo [*Show, Attend and Tell: Neural Image Caption Generation with Visual Attention*](https://arxiv.org/abs/1502.03044) que tem por objetivo analisar uma imagem e descrevê-la textualmente.
 
-### O problema
+## O problema
 Algoritmos para geração de legendas para imagens compõem um problema completo de AI, ou seja, eles precisam entender mais de um área de AI para conseguir resolver o problema.
 Primeiro o algoritmo deve entender dados de imagens e em segundo lugar devem ser hábil com texto em linguagem natural.
 
 
-### O Algortimo
+## O Algortimo
 
 Algoritmo [Show and Tell(Bengio, 2015)](https://arxiv.org/abs/1411.4555) é bem famoso para esse tipo de tarefa, porém ele é antigo, sofrendo algumas atualizações como [Show, Tell and Atend (Bengio, 2015)](https://arxiv.org/abs/1502.03044). O algoritmo *Show and Tell* foi liberado pelo google em 2016, tendo várias implementações no github. O problema com esse algoritmo é que ele tem que ser treinado pelo prṕrio usuário.
 
@@ -30,7 +30,7 @@ Usaremos o conjunto de dados [MS-COCO](http://cocodataset.org/#home) para treina
 
 Cuidado: download grande adiante. Você usará o conjunto de treinamento, que é um arquivo de 13 GB.
 
-### Pré-processamento das imagens usando a rede neural InceptionV3
+## Pré-processamento das imagens usando a rede neural InceptionV3
 para pré-processar as imagens usaremos a rede Neural [InceptionV3](https://en.wikipedia.org/wiki/Inceptionv3) (que é pré-treinado no Imagenet) para extrair vetores com carateríscas de cada imagem. Para isso iremos pegar a saída da última camada convolucional (antes do classificador).
 
 Usaremos a biblioteca tqdm para cachear as imagens pré-processadas
@@ -49,7 +49,7 @@ Usaremos a biblioteca tqdm para cachear as imagens pré-processadas
 * Por fim, preencheremos todas as seqüências com o mesmo comprimento que a mais longa (normalizaçao)
 
 
-### Divisão do Dataset
+## Divisão do Dataset
 
 Em geral os datasets possuem três partes
 
