@@ -100,6 +100,6 @@ se você chegou atéé aqui parabéns. Agora poderemos colher os frutos do trein
 
  * E armazenamos os pesos (*ver gradiente*) do mecanismo de atenção para cada etapa.
 
-#### Desenhando o que a rede "*enxergou*"
+## Desenhando o que a rede "*enxergou*"
 
 ![](images/attention_plot.png)
