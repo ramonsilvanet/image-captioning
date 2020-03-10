@@ -11,7 +11,7 @@ Esse fluxo foi baseado nos estudos abaixo:
 
 * [What is the Role of Recurrent Neural Networks (RNNs) in an Image Caption Generator?](https://arxiv.org/abs/1708.02043)
 
-Este notebook é uma demonstração do algoritmo [*Show, Attend and Tell: Neural Image Caption Generation with Visual Attention*](https://arxiv.org/abs/1502.03044) que tem por objetivo analisar uma imagem e descrevê-la textualmente.
+Este algoritimo é uma demonstração do algoritmo [*Show, Attend and Tell: Neural Image Caption Generation with Visual Attention*](https://arxiv.org/abs/1502.03044) que tem por objetivo analisar uma imagem e descrevê-la textualmente.
 
 ### O problema
 Algoritmos para geração de legendas para imagens compõem um problema completo de AI, ou seja, eles precisam entender mais de um área de AI para conseguir resolver o problema.
@@ -49,7 +49,7 @@ Usaremos a biblioteca tqdm para cachear as imagens pré-processadas
 * Por fim, preencheremos todas as seqüências com o mesmo comprimento que a mais longa (normalizaçao)
 
 
-### Divisão o Dataset
+### Divisão do Dataset
 
 Em geral os datasets possuem três partes
 
@@ -63,3 +63,43 @@ Geralmente a proporção de dados em cada porção do dataset é 70%/20%/10% mas
 
 Para facilitar o nosso exemplo, utilziaremos apenas o conjunto de trainemanto dividido entre Trainemaneto (80%) e validação (20%). O teste fica por sua conta.
 
+## Criando o modelo de Rede Neural
+
+A arquitetura do modelo é inspirada no artigo [Show, Attend and Tell](https://arxiv.org/pdf/1502.03044.pdf)
+
+ * Neste exemplo, extrairemos as características da camada convolucional inferior da Rede Nerual InceptionV3, fornecendo um vetor com dimensões (8, 8, 2048).
+
+ * achataremos o vetor para ficar (64,2048)
+
+ * Esse vetor é passado pelo Encoder CNN (rede Convolucional) (que consiste em uma única camada totalmente conectada).
+
+ * O RNN (aqui GRU) analisa a imagem para e tentar prever a próxima palavra da sequência (descrição).
+
+## Treinamento da Rede Neural
+
+ * extraimos os vetores de caracteríísticas armazenados nos arquivos .npy e passa esses recursos pelo codificador.
+
+ * A saída do codificador, o estado oculto (inicializado em 0) e a entrada do decodificador (que é o token de início) são passados ​​para o decodificador.
+
+ * O decodificador retorna as previsões e o estado oculto do decodificador.
+
+ * O estado oculto do decodificador é então passado de volta ao modelo e as previsões são usadas para calcular a perda.
+
+ * Usamos *Teacher Forcing* para decidir a próxima entrada para o decodificador.
+
+ * *Teacher Forcing* é a técnica em que a palavra alvo é passada como a próxima entrada para o decodificador.
+
+ * A etapa final é calcular os [gradientes](http://cursos.leg.ufpr.br/ML4all/apoio/Gradiente.html) e aplicá-lo ao otimizador e ao [backpropagate](http://deeplearningbook.com.br/algoritmo-backpropagation-parte-2-treinamento-de-redes-neurais/).
+
+ ## Gerando as descrições
+
+se você chegou atéé aqui parabéns. Agora poderemos colher os frutos do treinamentro da nossa Rede Neural.
+
+ * A função `evaluate` é semelhante ao loop de treinamento, exceto que você não usa *Teacher Forcing* aqui. A entrada para o decodificador em cada etapa do tempo é suas previsões anteriores, juntamente com o estado oculto e a saída do codificador.
+ * A previsãão para quando o modelo encontrar o Token final.
+
+ * E armazenamos os pesos (*ver gradiente*) do mecanismo de atenção para cada etapa.
+
+#### Desenhando o que a rede "*enxergou*"
+
+![](images/attention_plot.png)
