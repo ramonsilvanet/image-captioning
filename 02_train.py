@@ -1,5 +1,9 @@
+import os
+#bug fix
+os.environ["TF_FORCE_GPU_ALLOW_GROWTH"]="true"
+
 import tensorflow as tf
-tf.enable_eager_execution()
+
 # You'll generate plots of attention in order to see which parts of an image
 # our model focuses on during captioning
 import matplotlib.pyplot as plt
@@ -9,8 +13,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 
 import re
-
-import os
 import time
 import json
 import pickle
@@ -59,7 +61,7 @@ train_captions, img_name_vector = shuffle(all_captions,
                                           random_state=1)
 
 # Select the first 30000 captions from the shuffled set
-num_examples = 3000
+num_examples = len(train_captions)
 train_captions = train_captions[:num_examples]
 img_name_vector = img_name_vector[:num_examples]
 
@@ -178,14 +180,14 @@ if ckpt_manager.latest_checkpoint:
 loss_plot = []
 
 # WARNING THIS CAN TAKE SEVERAL HOURS !!!
-EPOCHS = 2
+EPOCHS = 20
 
 for epoch in range(start_epoch, EPOCHS):
     start = time.time()
     total_loss = 0
 
     for (batch, (img_tensor, target)) in enumerate(dataset):
-        batch_loss, t_loss = train_step(img_tensor, target, decoder)
+        batch_loss, t_loss = train_step(img_tensor, target, decoder, encoder, tokenizer, optimizer, loss_object)
         total_loss += t_loss
 
         if batch % 100 == 0:
@@ -220,7 +222,7 @@ print('Evaluate trained model')
 rid = np.random.randint(0, len(img_name_val))
 image = img_name_val[rid]
 real_caption = ' '.join([tokenizer.index_word[i] for i in cap_val[rid] if i not in [0]])
-result, attention_plot = evaluate(image, decoder)
+result, attention_plot = evaluate(image, decoder, encoder, max_length, attention_features_shape, image_features_extract_model, tokenizer)
 
 print('Real Caption:', real_caption)
 print('Prediction Caption:', ' '.join(result))

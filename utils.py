@@ -2,6 +2,7 @@ import os
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
+from PIL import Image
 
 def plot_attention(image, result, attention_plot):
     temp_image = np.array(Image.open(image))
@@ -17,14 +18,14 @@ def plot_attention(image, result, attention_plot):
         ax.imshow(temp_att, cmap='gray', alpha=0.6, extent=img.get_extent())
 
     plt.tight_layout()
-    plt.savefig(os.path.abspath('.') + 'outputs/attention.png')
+    plt.savefig(os.path.abspath('.') + '/outputs/attention.png')
 
 
 # Find the maximum length of any caption in our dataset
 def calc_max_length(tensor):
     return max(len(t) for t in tensor)
 
-def evaluate(image, decoder):
+def evaluate(image, decoder, encoder, max_length, attention_features_shape, image_features_extract_model, tokenizer):
   attention_plot = np.zeros((max_length, attention_features_shape))
 
   hidden = decoder.reset_state(batch_size=1)
@@ -61,7 +62,7 @@ def load_image(image_path):
   img = tf.keras.applications.inception_v3.preprocess_input(img)
   return img, image_path
 
-def loss_function(real, pred):
+def loss_function(real, pred, loss_object):
   mask = tf.math.logical_not(tf.math.equal(real, 0))
   loss_ = loss_object(real, pred)
 
@@ -80,7 +81,7 @@ def map_func(img_name, cap):
 #                 TRAINING FUNCTRION                   #
 ########################################################
 @tf.function
-def train_step(img_tensor, target, decoder):
+def train_step(img_tensor, target, decoder, encoder, tokenizer, optimizer, loss_object):
   loss = 0
 
   # initializing the hidden state for each batch
@@ -96,7 +97,7 @@ def train_step(img_tensor, target, decoder):
           # passing the features through the decoder
           predictions, hidden, _ = decoder(dec_input, features, hidden)
 
-          loss += loss_function(target[:, i], predictions)
+          loss += loss_function(target[:, i], predictions, loss_object)
 
           # using teacher forcing
           dec_input = tf.expand_dims(target[:, i], 1)
@@ -110,5 +111,3 @@ def train_step(img_tensor, target, decoder):
   optimizer.apply_gradients(zip(gradients, trainable_variables))
 
   return loss, total_loss
-
-
